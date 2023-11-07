@@ -1,6 +1,6 @@
-## API-Explorer-Web-Application
+# API-Explorer-Web-Application
 
-# Overview:
+## Overview:
 In this assignment, you will embark on a journey to build a web application that utilizes an API of your choice to fetch, interact with, and present data in a unique and interactive way.
 
 This is an individual assignment, but we highly encourage you to chat with your teammates as you each complete your own assignment (just make sure you all use different APIs). This is because communication keeps teams strong and the peer support you can get from one another is priceless!
