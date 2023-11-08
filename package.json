@@ -1,0 +1,12 @@
+{
+  "name": "api-explorer-web-application",
+  "version": "1.0.0",
+  "description": "## Overview: In this assignment, you will embark on a journey to build a web application that utilizes an API of your choice to fetch, interact with, and present data in a unique and interactive way.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
