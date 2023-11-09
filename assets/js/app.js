@@ -1,21 +1,47 @@
-const loadInformation = async() => {
 
-    try {
-        const response = await fetch('https://api.nasa.gov/insight_weather/?api_key=2joXHeTW2Gelt0JzPVNYVhzsN7wzxfG6VH4smHJO&feedtype=json&ver=1.0');
-        console.log(response);
+const API_KEY = `96a061b7c4dfa7a6d5bcdc9f1733e583`
+const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}` //Movie API
 
-        const data = response.text();
-        console.log(data);
-        return data;
-        
-    } catch(error){
-        console.log(error);
-    }
+const loadMovies = async() => {
+
+	try {
+		const response = await fetch(API_URL);
+		console.log(response);
+
+		let movies = " ";
+		const data = await response.json();
+		data.results.forEach(movies => {
+            movies = movies + '1111';
+			return movies;
+
+		});
+
+		document.getElementById('content').innerHTML = movies;
+
+	} catch(error) {
+
+		console.log(error);
+	}
+
+
 }
 
-// async function main() {
-//     const a = await loadInformation();
-//     console.log(a);
+
+loadMovies();
+
+
+// function getWeather(){
+// 	fetch(API_URL)
+// 	.then(res => res.json())
+// 	.then(data => {
+// 		console.log(data)
+// 	})
 // }
 
-// main();
+
+// Object.keys(data.validity_checks).map(key => {
+	// 	const value = data.validity_checks[key]
+	// 	console.log({key}, value);
+	// });
+
+

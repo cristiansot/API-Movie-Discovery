@@ -1,4 +1,4 @@
-# API-Explorer-Web-Application
+# API Movie Discover
 
 ## Overview:
 In this assignment, you will embark on a journey to build a web application that utilizes an API of your choice to fetch, interact with, and present data in a unique and interactive way.
