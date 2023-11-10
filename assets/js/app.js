@@ -1,8 +1,5 @@
 const API_KEY = `96a061b7c4dfa7a6d5bcdc9f1733e583`;
-const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`; // Movie API
-const btnPost = document.querySelector('#btnPost');
-const inputText = document.querySelector('#inputText');
-const message = document.querySelector('#message');
+const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`; // API movies
 
 const loadMovies = async () => {
   let movies = '';
@@ -23,36 +20,79 @@ const loadMovies = async () => {
   }
 };
 
-const getData = () => {
-    const inputTextValue = FormData(inputText);
-    // const inputTextValue = document.getElementById('inputText').value;
-    return getData;
-};
-
-const postData = async () => {
-    
-    const newData = getData;
-    try {
-        const response = await fetch('http://localhost:3000/post', { 
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newData)
-        });
-        if (response.ok) {
-            // const jsonResponse = await response.json();
-            // message = jsonResponse;
-           
-            document.getElementById('message').innerHTML = JSON.stringify(newData);
-
-        }
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-btnPost.addEventListener('click', (event) => {
-    event.preventDefault();
-    postData();
+//Post button save the data when the user write a comment
+btnPost.addEventListener('click', async e => {
+  e.preventDefault();
+  const post = document.querySelector('#inputText').value;
+  const newData = {post};
+  await postData(newData);
 });
+
+//Put button save the data when the user write a comment
+btnPut.addEventListener('click', async e => {
+  e.preventDefault();
+  const post = document.querySelector('#inputText').value;
+  const newData = {post};
+  await refreshData(newData);
+});
+
+//Put button save the data when the user write a comment
+btnDelete.addEventListener('click', async e => {
+  e.preventDefault();
+  const post = document.querySelector('#inputText').value;
+  const newData = {post};
+  await deleteData(newData);
+});
+
+const postData = async (newData) => {
+  try {
+    const response = await fetch('https://654e9880cbc325355742ffed.mockapi.io/app/post', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newData)
+    });
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      const {post} = jsonResponse;
+      document.getElementById('message').innerHTML = `${post}`;
+    }
+  } catch (error) {
+    document.getElementById('message').innerHTML = error;
+  }
+};
+
+const refreshData = async (newData) => {
+  try {
+    const response = await fetch('https://654e9880cbc325355742ffed.mockapi.io/app/post/1', {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newData)
+    });
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      const {post} = jsonResponse;
+      document.getElementById('message').innerHTML = `${post}`;
+    }
+  } catch (error) {
+    document.getElementById('message').innerHTML = error;
+  }
+};
+
+const deleteData = async (newData) => {
+  try {
+    const response = await fetch('https://654e9880cbc325355742ffed.mockapi.io/app/post/1', {
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newData)
+    });
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      const {post} = jsonResponse;
+      document.getElementById('message').innerHTML = 'Information deleted';
+    }
+  } catch (error) {
+    document.getElementById('message').innerHTML = error;
+  }
+};
 
 loadMovies();
