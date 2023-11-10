@@ -7,15 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Quattrocento&display=swap" rel="stylesheet">
     <title>Movie Discovery APP</title>
 </head>
-
 <body>
-
-    <div class="content" id="content">
+    <header>
         <div class="title"><h1>API Movie Discovery</h1></div>
+        <div id="message"></div>
+        <div><input type="text" class="inputText" id="inputText" placeholder="What is your favorite movie on the list?"></div>
+        <div>
+            <div class="buttons">
+                <button class="btnOne" id="btnPost">Post</button>
+                <button class="btnTwo" id="btnPut">Put</button>
+                <button class="btnThree" id="btnDelete">Delete</button>
+            </div>
+        </div>
+    </header>
+    <div class="content" id="content">
         <div id="movieContent"></div>
     </div>
-        
 </body>
 <script src="./assets/js/app.js"></script>
 </html>
-
