@@ -36,7 +36,7 @@ btnPut.addEventListener('click', async e => {
   await refreshData(newData);
 });
 
-//Put button save the data when the user write a comment
+//Put button delete the data when the user push a delete button
 btnDelete.addEventListener('click', async e => {
   e.preventDefault();
   const post = document.querySelector('#inputText').value;
