@@ -20,6 +20,8 @@ const loadMovies = async () => {
   }
 };
 
+
+// https://www.youtube.com/shorts/mKQITczHIkc
 //Post button save the data when the user write a comment
 btnPost.addEventListener('click', async e => {
   e.preventDefault();
@@ -44,9 +46,9 @@ btnDelete.addEventListener('click', async e => {
   await deleteData(newData);
 });
 
-const postData = async (newData) => {
+const postData = async (newData) => { //I used this video for to understand how to develop this part of code ---> https://www.youtube.com/watch?v=Dvv2TvPD8C0&ab_channel=Emprinnos
   try {
-    const response = await fetch('https://654e9880cbc325355742ffed.mockapi.io/app/post', {
+    const response = await fetch('https://654e9880cbc325355742ffed.mockapi.io/app/post', { //https://mockapi.io/projects/654e9880cbc325355742ffee
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newData)
