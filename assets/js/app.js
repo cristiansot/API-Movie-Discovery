@@ -12,14 +12,19 @@ const loadMovies = async () => {
                         <h2>${movie.title}</h2>
                         <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"></img>
                     </div>`;
+      } else if (response.status === 401) {
+        document.getElementById('message').innerHTML = 'Wrong key';
+      } else if (response.status === 404) {
+        document.getElementById('message').innerHTML = 'Page not found';
+      } else { 
+        document.getElementById('message').innerHTML = 'Error';
       }
     });
     document.getElementById('movieContent').innerHTML = movies;
   } catch (error) {
-    console.log(error);
+    document.getElementById('message').innerHTML = 'Error';
   }
 };
-
 
 // https://www.youtube.com/shorts/mKQITczHIkc
 //Post button save the data when the user write a comment
